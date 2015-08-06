@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Bar Chart</title>
+		<script src="js/Chart.js"></script>
+		<script src="js/iscroll.js"></script>
+		<link rel="stylesheet" href="css/styles.css" />
+	</head>
+	<body>
+	<div id="header2">Cumplimiento de Actividades</div>
+	<div id="wrapper">
+	  	<ul>
+	  		<li>
+	  			<div style="width:97%; background: white; left:5%;">
+					<canvas id="actividades" height="50%" width="100%"></canvas>
+				</div>
+	  		</li>
+	  		<li>
+	  		    <div><a id="actividadmes"></a></div>
+	  		</li>
+	  		<li>
+	  		    <div><a id="actividadanual"></a></div>
+	  		</li>
+	  		
+	  	</ul>
+	  </div>
+
+
+
+	<script>
+	var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+    var metricames = "<p>A. Actividades del Mes %</p><p>   	    Realizadas: "+getUrlVars()["m0101"]+"</p><p>			Pendientes: "+getUrlVars()["m0102"]+"</p><p>			Anuladas: "+getUrlVars()["m0103"]+"</p>";
+    var metricaanual = "<p>B. Actividades Plan Anual %</p><p>   	    Realizadas: "+getUrlVars()["m0201"]+"</p><p>			Pendientes: "+getUrlVars()["m0202"]+"</p><p>			Anuladas: "+getUrlVars()["m0203"]+"</p>";
+ 
+    document.getElementById("actividadmes").innerHTML = metricames;
+    document.getElementById("actividadanual").innerHTML = metricaanual;
+    
+	var barChartData = {
+		labels : ["A","B"],
+		datasets : [
+			{
+				fillColor : "rgba(82,255,6,0.4)",
+				strokeColor : "rgba(0,0,0,0.6)",
+				highlightFill : "rgba(82,255,6,1)",
+				highlightStroke : "rgba(0,0,0,1)",
+				data : [getUrlVars()["m0101"],getUrlVars()["m0201"]]		
+			},
+			{
+				fillColor : "rgba(0,6,255,0.4)",
+				strokeColor : "rgba(0,0,0,0.6)",
+				highlightFill : "rgba(0,6,255,1)",
+				highlightStroke : "rgba(0,0,0,1)",
+				data : [getUrlVars()["m0102"],getUrlVars()["m0202"]]
+			},
+			{
+				fillColor : "rgba(255,6,12,0.4)",
+				strokeColor : "rgba(151,187,205,0.6)",
+				highlightFill: "rgba(255,6,12,1)",
+				highlightStroke: "rgba(151,187,205,1)",
+				data : [getUrlVars()["m0103"],getUrlVars()["m0203"]]
+			}
+		]
+
+	}
+	window.onload = function(){
+		var ctx = document.getElementById("actividades").getContext("2d");
+		window.myBar = new Chart(ctx).Bar(barChartData, {
+			responsive : true
+		});
+	}
+
+
+function getUrlVars() {
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
+
+	</script>
+	</body>
+</html>

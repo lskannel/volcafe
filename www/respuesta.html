@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+        <title>Directorio Promotores</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.3.css" />
+
+    </head>
+
+	<body>
+	<div id="header" class="header">
+		<h1>Plan de Accion</h1>
+	</div>
+	<div id="header2">
+		<h2><button class="button" onclick="regresa();">Cancelar</button>	
+		    <button class="button" onclick="grabar_respuestas();"> Grabar </button>
+		    <button class="button" onclick="informe_vista();"> Informe </button>
+		</h2>
+	</div>
+	
+	<div id="wrapper"> 
+	     <ul id="ingresa_ul"  style="list-style-type:none;" ></ul>	     
+	</div>
+	<div id="busy">Espere...</div>
+	</body>
+
+    <script type="text/javascript" src="cordova.js"></script>
+
+    <script src="js/jquery.js"></script>    
+    <script src="js/iscroll.js"></script>
+    <script src="js/file-manager.js"></script>
+    <script src="js/xml-converter.js"></script>
+    <script src="js/respuesta.js"></script>
+    <script src="js/informe.js"></script>
+
+</html>

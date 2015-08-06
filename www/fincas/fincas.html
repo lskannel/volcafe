@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+	<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+	<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+	<!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
+	<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
+    <head>
+		<meta charset="UTF-8" />
+
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<script src="js/fincas.js"></script>
+    </head>
+    <body style="zoom:100%;  width:90%;">
+	     <div style="margin-top:10px; margin-bottom:10px; margin-left:50px;"> 
+		 <a onclick='actualizaDatos()' class="button" >Actualizar Datos</a>
+		 <h1 class="lineh" >Datos de la Finca</h1>
+	     <label for="nombre" class="small" style="color: #ccc;">Nombre Finca</label>
+	     <input type="text" id="nombre" class="form-control-h2" placeholder="Ingrese Nombre de la Finca" >
+		 <label for="direccion" class="small"  style="color: #ccc;">Direccion</label>
+		 <input type="text" id="direccion" class="form-control-h2" placeholder="Direccion" >
+		 <label for="telefonos" class="small"  style="color: #ccc;">Direccion</label>
+		 <input type="tel" id="telefonos" class="form-control-h2" placeholder="Telefonos" >
+		 <label for="correo" class="small"  style="color: #ccc;">Correo Electronico</label>
+		 <input type="email" id="correo" class="form-control-h2" placeholder="Correo electronico" >
+		<h2 class="lineh">UBICACION</h2>
+		<label for="ciudadcombo_f" class="small"  style="color: #ccc;">Provincia</label>
+		 <select id='ciudadcombo_f' class="form-control-h2" placeholder="Ingrese Provincia" >
+		 </select>					 
+		 <label for="deptoscombo_f" class="small"  style="color: #ccc;">Departamento</label>
+		 <select id='deptoscombo_f' class="form-control-h2" placeholder="Ingrese Departamento" >
+		 </select>
+		 <label for="paiscombo_f" class="small"  style="color: #ccc;">Pais</label>
+		 <select id='paiscombo_f' class="form-control-h2" placeholder="Ingrese Pais">
+		 </select>			 
+		 <label for="latitud" class="small"  style="color: #ccc;">Latitud</label>
+		 <input type="number" id="latitud" class="form-control-h2" placeholder="Coordenada GPS Latitud" >
+		 <label for="longitud" class="small"  style="color: #ccc;">Longitud</label>
+		 <input type="number" id="latitud" class="form-control-h2" placeholder="Coordenada GPS Longitud" >
+		 <label for="altitud" class="small"  style="color: #ccc;">Atitud</label>
+		 <input type="number" id="altitud" class="form-control-h2" placeholder="Altitud" >
+					
+		 <h2 class="lineh">FUERZA LABORAL</h2>		 
+		 <label for="trabPerm" class="small"  style="color: #ccc;">Trabajadores Permanentes</label>
+		 <input type="number" id="trabPerm" class="form-control-h2" placeholder="Trabjadores Permanentes" >
+		 <label for="trabTemp" class="small"  style="color: #ccc;">Trabajadores Temporales</label>
+		 <input type="number" id="trabPerm" class="form-control-h2" placeholder="Trabjadores Temporales" >
+		 <label for="trabCosecha" class="small"  style="color: #ccc;">Trabajadores Cosecha</label>
+		 <input type="number" id="trabCosecha" class="form-control-h2" placeholder="Trabjadores Cosecha" >
+		 <label for="trabCosecha" class="small"  style="color: #ccc;">Trabajadores Cosecha</label>
+		 <input type="number" id="trabCosecha" class="form-control-h2" placeholder="Trabjadores Cosecha" >
+		 <label for="trabCosecha" class="small"  style="color: #ccc;">Trabajadores Cosecha</label>
+		 <input type="number" id="trabCosecha" class="form-control-h2" placeholder="Trabjadores Cosecha" >
+
+					
+		 <h2 class="lineh">INFORMACION DE TERRENO</h2>		 
+		 <label for="nolotes" class="small"  style="color: #ccc;">Numero de Lotes</label>
+		 <input type="number" id="nolotes" class="form-control-h2" placeholder="Numero de Lotes" >
+		 <label for="area" class="small"  style="color: #ccc;">Area Total</label>
+		 <input type="number" id="area" class="form-control-h2" placeholder="Area Total" >
+		 <label for="areacultivada" class="small"  style="color: #ccc;">Area Cultivada Cafe</label>
+		 <input type="number" id="areacultivada" class="form-control-h2" placeholder="Area cultivada con cafe" >
+		 <label for="areaotros" class="small"  style="color: #ccc;">Area Otros Cultivos</label>
+		 <input type="number" id="areaotros" class="form-control-h2" placeholder="Area Otros Cultivos" >
+		 <label for="areaconserva" class="small"  style="color: #ccc;">Area Conservacion</label>
+		 <input type="number" id="areaconserva" class="form-control-h2" placeholder="Area conservacion" >
+		 <label for="densidad" class="small"  style="color: #ccc;">Densidad Siembra</label>
+		 <input type="number" id="densidad" class="form-control-h2" placeholder="Densidad Siembra" >
+		 <label for="tiposuelo" class="small"  style="color: #ccc;">Tipo Suelo</label>
+		 <input type="number" id="tiposuelo" class="form-control-h2" placeholder="Tipo Suelo" >
+		 <label for="topografia" class="small"  style="color: #ccc;">Topografia Dominante</label>
+		 <input type="number" id="topografia" class="form-control-h2" placeholder="Topografia Dominante" >	
+		 <h2 class="lineh">INFORMACION PARA CERTIFICACIONES</h2>	
+		 <label for="areaconserva" class="small"  style="color: #ccc;">Cuenta con cuerpos de agua</label>
+		 <input type="number" id="areaconserva" class="form-control-h2" placeholder="Cuenta con cuerpos agua" >
+		 <label for="densidad" class="small"  style="color: #ccc;">Acceso a Agua Potable</label>
+		 <input type="number" id="densidad" class="form-control-h2" placeholder="Acceso a Agua Potable" >	
+		 <label for="densidad" class="small"  style="color: #ccc;">Cuenta con Bodega</label>
+		 <input type="number" id="densidad" class="form-control-h2" placeholder="Cuenta con Bodega" >	
+		 <label for="densidad" class="small"  style="color: #ccc;">Cuenta con Oficina</label>
+		 <input type="number" id="densidad" class="form-control-h2" placeholder="Cuenta con Oficina" >	
+
+		 <label for="densidad" class="small"  style="color: #ccc;">Hay viviendas</label>
+		 <input type="number" id="densidad" class="form-control-h2" placeholder="Hay viviendas" >	
+		 <label for="densidad" class="small"  style="color: #ccc;">Cuenta con Certificaciones</label>
+		 <input type="number" id="densidad" class="form-control-h2" placeholder="Cuenta con certificaciones" >			 
+
+		 <label for="densidad" class="small"  style="color: #ccc;">Variedad de Cafe</label>
+		 <input type="number" id="densidad" class="form-control-h2" placeholder="Variedad de Cafe" >			 
+		 
+		 
+				 
+				 </div>
+    </body>
+
+</html>
+
+
+
+<script>
+function llenaCombosList(){
+
+	db = window.openDatabase("PromotorDirectoryDB", "1.0", "PhoneGap Demo", 1000);
+    db.transaction(llenaComboPais);
+
+}
+
+function llenaComboPais(tx){
+	$("#paiscombo_f").append("<option  value=''  ></option>");
+	var sql = "select " 
+		 + "nombre, pais " 
+		 + " from paises order by nombre" ; 
+     tx.executeSql(sql, [], 
+		function (tx, results){  
+			
+			for(var i = 0; i < results.rows.length; i++)
+				{
+					var paises = results.rows.item(i);
+					$("#paiscombo_f").append("<option name='"+paises.pais.toString() +"' value='"+paises.pais.toString() +"' onclick='selpais(name)' >" + paises.nombre+ "</option>");
+				}
+			} );	
+	 llenaComboDeptos(tx);
+	 llenaComboCiudades(tx);
+}
+
+function selpais(a){
+//alert(a);
+}
+
+function llenaComboDeptos(tx){
+    $("#deptoscombo_f").append("<option  value='' onclick='seldepto(name)' ></option>");
+	var sql = "select " 
+		 + "nombre, depto " 
+		 + " from departamentos order by nombre" ; 
+     tx.executeSql(sql, [], 
+		function (tx, results){  
+			
+			for(var i = 0; i < results.rows.length; i++)
+				{
+					var deptos = results.rows.item(i);
+					$("#deptoscombo_f").append("<option name='"+deptos.depto.toString() +"' value='"+deptos.depto.toString() +"' onclick='seldepto(name)' >" + deptos.nombre+ "</option>");
+				}
+			} );	
+	 
+}
+
+function seldepto(a){
+//alert(a);
+}
+
+function llenaComboCiudades(tx){
+	$("#ciudadcombo_f").append("<option  value=''  ></option>");
+	var sql = "select " 
+		 + "nombre, ciudad " 
+		 + " from ciudades order by nombre" ; 
+     tx.executeSql(sql, [], 
+		function (tx, results){  
+			
+			for(var i = 0; i < results.rows.length; i++)
+				{
+					var ciudades = results.rows.item(i);
+					$("#ciudadcombo_f").append("<option name='"+ciudades.ciudad.toString() +"' value='"+ciudades.ciudad.toString() +"' onclick='selciudad(name)' >" + ciudades.nombre+ "</option>");
+				}
+			} );	
+	 
+}
+
+function selciudad(a){
+//alert(a);
+}
+
+
+llenaCombosList();
+
+</script>

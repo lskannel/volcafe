@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+	<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+	<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+	<!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
+	<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
+<head>
+        <title>Elastislide - A Responsive Image Carousel</title>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="../css/volcafe.css" />
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		
+        <link rel="stylesheet" type="text/css" href="../carrousel/css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="../carrousel/css/elastislide.css" />
+		<link rel="stylesheet" type="text/css" href="../carrousel/css/custom.css" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" />
+		<script type="text/javascript" src="../js/jquerypp.custom.js"></script>
+		<script type="text/javascript" src="../js/jquery.elastislide.js"></script>
+</head>
+<body >
+	<div id="header3" class="header3">
+			<h3>Registro de Productores  </h3>
+	</div>
+           
+         <ul >
+		   <li><a  href="#menu01">Datos Productor</a></li>
+		   <li><a  href="#menu02">Plan de Accion Actual</a></li>
+		   <li><a  href="#menu03">Historico de Diagnosticos</a></li>
+   	    </ul>
+
+<table>
+ <tr>
+ <td valign="top">
+	  <div id='menuxx' class="tab-content">
+      <div id="menu01" class="tab-pane fade in active">
+		 <iframe src="datos.html" class="dato"  frameborder="0"  ></iframe>
+      </div>
+      <div id="menu02" class="tab-pane fade">
+	  	  <iframe src="../diagnostico/planaccion.html" class="dato"  frameborder="0" ></iframe>
+	  </div>
+	  <div id="menu03" class="tab-pane fade">
+	  	  <iframe src="../diagnostico/historico.html" class="dato" frameborder="0" > </iframe>
+	  </div>
+	  </div>
+ </td>
+ </tr>
+</table>
+</body>
+
+<script>
+
+function getUrlVars() {
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
+function Default(){
+        var id=getUrlVars()["id"];
+		var np=getUrlVars()["np"];
+		$('#menuxx #menu01').empty("");
+		$('#menuxx #menu01').append('<iframe src="datos.html?id='+id+'&np='+np+'" class="dato"  frameborder="0"  scrolling="no"></iframe>'); 
+}
+Default();
+</script>

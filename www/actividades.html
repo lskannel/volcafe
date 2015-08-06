@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+	<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+	<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+	<!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
+	<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
+<html>
+    <head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <title>Encuesta</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+         <meta charset="utf-8" />
+        <link rel="stylesheet" href="css/styles.css" />
+		<link rel="stylesheet" href="css/volcafe.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    </head>
+    
+    <body  style="background:#007748;">
+        
+	<div id="header" class="header">
+		<h1>Calendarizar Actividades </h1>
+	</div>
+	<div id="header2">
+		<h2><button class="button" onclick="cancela();">Salir</button>
+		    <button class='button'  onclick="createCalendarEvent(); regresa();" >Agrega a Calendario</button>
+		</h2>
+	</div>
+	</br></br></br></br>
+	<div > 
+	     <label for="title" class="small" style="color: #ccc;">Actividad a Planificar:</label>
+	     <ul type="text" id="title" class="dropdown" placeholder="Seleccione Actividad" >
+	     <label for="loc" class="small"  style="color: #ccc;">Lugar en donde se Realizara:</label>
+	     <input type="text" id="loc" class="form-control-h2" placeholder="Lugar de reunion" >
+	     <label for="startDate" class="small"  style="color: #ccc;">Fecha Inicia:</label>
+	     <input type="date" id="startDate" class="form-control" placeholder="dd-mm-yyyy" >
+	     <label for="endDate" class="small"  style="color: #ccc;">Fecha Finaliza:</label>
+	     <input type="date" id="endDate" class="form-control" placeholder="dd-mm-yyyy" >
+	
+	     <label for="notes" class="small"  style="color: #ccc;">Notas:</label>
+	     <input type="text" id="notes" class="form-control" placeholder="Notas o indicaciones" >
+		
+    </div>
+	<div id="busy">Espere ...</div>
+
+	
+    <script src="cordova.js"></script>
+	<script src="js/Calendar.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/iscroll.js"></script>    
+    <script src="js/file-manager.js"></script>
+    <script src="js/xml-converter.js"></script>
+	<script src="js/actividades.js"></script>
+	
+    </body>
+
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+	<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+	<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+	<!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
+	<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
+    <head>
+		<meta charset="UTF-8" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/volcafe.css" />
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.3.css" />
+		<link rel="stylesheet" href="css/jquery.alerts.css" />
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.alerts.js"></script>        
+        <script src="js/iscroll.js"></script>
+		<script src="js/datos.js"></script>		
+		
+    </head>
+    <body style="zoom:100%;  width:85%;">
+		 <header>
+	       <div style="margin-top:0px; margin-bottom:0px; margin-left:10px; margin-right:10px;"> 
+		   <button type='button' onclick='grabar()' >Grabar</button>
+		   <button type='button' onclick='cancelar()' >Cancelar</button>
+		 </br></br>
+		 </header>
+		 <div class='DATOS'>
+			 <label for="nombre" class="small" style="color: #ccc;" >Nombre</label>
+			 <input type="text" id="nombre" class="form-control-h2" placeholder="Ingrese Nombre" >
+	     <label for="pais" class="small"  style="color: #ccc;">Pais</label>	
+					<select id='paiscombo' class="form-control-h2" placeholder="Ingrese Pais" onchange="">
+					</select>	
+	     <label for="departamento" class="small"  style="color: #ccc;">Departamento</label>
+					<select id='deptoscombo' class="form-control-h2" placeholder="Ingrese Departamento">
+					</select>
+		 <label for="municipio" class="small"  style="color: #ccc;">Municipio</label>
+					<select id='ciudadcombo' class="form-control-h2" placeholder="Ingrese Ciudad">
+					</select>		 
+			 <label for="direccion" class="small"  style="color: #ccc;">Direccion</label>
+			 <input type="text" id="direccion" class="form-control-h2" placeholder="Direccion" >
+			 <label for="telefono" class="small"  style="color: #ccc;">Telefono</label>
+			 <input type="tel" id="telefono" class="form-control-h2" placeholder="Telefono" >
+			 <label for="correo" class="small"  style="color: #ccc;">Correo Electronico</label>
+			 <input type="email" id="correo" class="form-control-h2" placeholder="Correo Electronico" >
+			 <label for="fechaNacimiento" class="small"  style="color: #ccc;">Fecha de Nacimiento</label>
+			 <input type="date" id="fechaNacimiento" class="form-control-h2" placeholder="Fecha Nacimiento" >
+			 <label for="identificacion" class="small"  style="color: #ccc;">Identificacion</label>
+			 <input type="text" id="identificacion" class="form-control-h2" placeholder="Identificacion" >
+			 <label for="NIT" class="small" style="color: #ccc;">NIT/CIF</label>
+			 <input type="number" id="NIT" class="form-control-h2" placeholder="Numero de Identificacion Tributaria" >
+			 <label for="FamiliarMenor" class="small"  style="color: #ccc;">Familiares Menores de Edad</label>
+			 <input type="number" id="FamiliarMenor" class="form-control-h2" placeholder="Cantidad de Familiar Menores de Edad" >
+			 <label for="FamiliarMayor" class="small"  style="color: #ccc;">Familiares Mayores de Edad</label>
+			 <input type="number" id="FamiliarMayor" class="form-control-h2" placeholder="Cantidad de Familiar Mayor de Edad" >
+			 <label for="Actividad1" class="small"  style="color: #ccc;">Actividad Economica Principal</label>
+			 <input type="text" id="Actividad1" class="form-control-h2" placeholder="Actividad Economica Principal" >
+			 <label for="Actividad2" class="small" style="color: #ccc;">Actividad Economica Secundaria</label>
+			 <input type="text" id="Actividad2" class="form-control-h2" placeholder="Actividad Economica Secundaria" >
+			 <label for="Actividad3" class="small"  style="color: #ccc;">Actividad Economica Terceraria</label>
+			 <input type="text" id="Actividad3" class="form-control-h2" placeholder="Actividad Economica Terceria" >
+			 
+			</div>
+	  </div>	 
+    </body>
+
+<script>
+//	            <select id='actividad1combo' class="form-control-h2" placeholder="Seleccione Actividad" disabled>
+//				</select>				 
+
+
+function llenaCombosList(){
+
+	db = window.openDatabase("PromotorDirectoryDB", "1.0", "PhoneGap Demo", 1000);
+    db.transaction(llenaComboPais);
+
+}
+
+function llenaComboPais(tx){
+	$("#paiscombo").append("<option  value=''  ></option>");
+	var sql = "select " 
+		 + "nombre, pais " 
+		 + " from paises order by nombre" ; 
+     tx.executeSql(sql, [], 
+		function (tx, results){  
+			
+			for(var i = 0; i < results.rows.length; i++)
+				{
+					var paises = results.rows.item(i);
+					$("#paiscombo").append("<option name='"+paises.pais.toString() +"' value='"+paises.pais.toString() +"' onclick='selpais(name)' >" + paises.nombre+ "</option>");
+				}
+			} );	
+	 llenaComboDeptos(tx);
+	 llenaComboCiudades(tx);
+}
+
+function selpais(a){
+//alert(a);
+}
+
+function llenaComboDeptos(tx){
+    $("#deptoscombo").append("<option  value='' onclick='seldepto(name)' ></option>");
+	var sql = "select " 
+		 + "nombre, depto " 
+		 + " from departamentos order by nombre" ; 
+     tx.executeSql(sql, [], 
+		function (tx, results){  
+			
+			for(var i = 0; i < results.rows.length; i++)
+				{
+					var deptos = results.rows.item(i);
+					$("#deptoscombo").append("<option name='"+deptos.depto.toString() +"' value='"+deptos.depto.toString() +"' onclick='seldepto(name)' >" + deptos.nombre+ "</option>");
+				}
+			} );	
+	 
+}
+
+function seldepto(a){
+//alert(a);
+}
+
+function llenaComboCiudades(tx){
+	$("#ciudadcombo").append("<option  value=''  ></option>");
+	var sql = "select " 
+		 + "nombre, ciudad " 
+		 + " from ciudades order by nombre" ; 
+     tx.executeSql(sql, [], 
+		function (tx, results){  
+			
+			for(var i = 0; i < results.rows.length; i++)
+				{
+					var ciudades = results.rows.item(i);
+					$("#ciudadcombo").append("<option name='"+ciudades.ciudad.toString() +"' value='"+ciudades.ciudad.toString() +"' onclick='selciudad(name)' >" + ciudades.nombre+ "</option>");
+				}
+			} );	
+	 
+}
+
+function selciudad(a){
+//alert(a);
+}
+
+
+llenaCombosList();
+
+</script>

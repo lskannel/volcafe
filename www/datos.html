@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+	<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+	<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+	<!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
+	<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
+<head>
+        <title>Elastislide - A Responsive Image Carousel</title>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="css/volcafe.css" />
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		
+		
+        <link rel="stylesheet" href="css/jquery.alerts.css" />
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.3.css" />
+ 
+        <link rel="stylesheet" type="text/css" href="carrousel/css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="carrousel/css/elastislide.css" />
+		<link rel="stylesheet" type="text/css" href="carrousel/css/custom.css" />
+		<link rel="stylesheet" type="text/css" href="css/styles1.css" />
+		<link rel="stylesheet" type="text/css" href="css/volcafe.css" />
+		<script type="text/javascript" src="js/jquerypp.custom.js"></script>
+		<script type="text/javascript" src="js/jquery.elastislide.js"></script>
+
+
+		<script src="js/jquery.alerts.js"></script>  
+		<script src="js/iscroll.js"></script>
+
+</head>
+<body >
+  <div id="fondoTenue">
+  <div>
+  <div class='header3'></div>
+	<table>
+		 <tr>
+		 <td>
+			 <ul class="nav nav-tabs" >
+			   <li  class="active"><a data-toggle="tab" href="#menu01"><b>Datos Productor</b></a></li>
+			   <li><a data-toggle="tab" href="#menu11"><b>Datos de Fincas</b></a></li>
+			   <li><a data-toggle="tab" href="#menu12"><b>Galeria Fotos</b></a></li>
+			   <li><a data-toggle="tab" href="#menu21"><b>Busqueda de Productor</b></a></li>
+		
+			</ul>
+
+		    <div  class="tab-content">
+			  <div id="menu01" class="tab-pane fade in active">
+				 <iframe src="datos/indexdatos.html?id="+id+"&np="+np+" class="dato"  frameborder="0"  scrolling="yes"></iframe>
+			  </div>
+ 			  <div id="menu21" class="tab-pane fade">
+				 <iframe src="datos/buscar.html" class="dato"  frameborder="0"  scrolling="yes"></iframe>
+			  </div>
+
+			  <div id="menu02" class="tab-pane fade">
+				  <iframe src="../diagnostico/planaccion.html" class="dato"  frameborder="0" scrolling="no"></iframe>
+			  </div>
+			  <div id="menu03" class="tab-pane fade">
+				  <iframe src="../diagnostico/historico.html" class="dato" frameborder="0"  scrolling="no"> </iframe>
+			  </div>
+			  <div id="menu11" class="tab-pane fade">
+				<iframe src="fincas/listafincas.php" ></iframe>
+			  </div>
+			  <div id="menu12" class="tab-pane fade">
+				<iframe src="carrousel/index4.html" > </iframe>
+			  </div>
+			  <div id="menu13" class="tab-pane fade">
+				<iframe src="carrousel/directorio.html" > </iframe>
+			  </div>
+
+			</div>
+		 </td>
+		 </tr>
+		</table>
+	</div>
+  </div>
+</body>
+
+<script>
+
+function getUrlVars() {
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
+function Default(){
+        var id=getUrlVars()["id"];
+		var np=getUrlVars()["np"];
+		$('#menu01').empty("");
+		$('#menu01').append('<iframe src="datos/indexdatos.html?id='+id+'&np='+np+'" class="dato"  frameborder="0"  scrolling="yes"></iframe>'); 
+		$('#menu11').empty('');
+	//	$('#menu11').append('<iframe src="fincas/listafincas.html?id='+id+'&np='+np+'" class="dato"  frameborder="0" scrolling="yes"></iframe>'); 
+		$('#menu12').empty('');
+	//	$('#menu12').append('<iframe src="carrousel/index4.html?id='+id+'&np='+np+'" class="dato" frameborder="0"  scrolling="yes"> </iframe>');
+		$('#menu13').empty('');
+	//	$('#menu13').append('<iframe src="carrousel/directorio.html?id='+id+'&np='+np+'" class="dato" frameborder="0"  scrolling="yes"> </iframe>');
+		
+}
+Default();
+</script>

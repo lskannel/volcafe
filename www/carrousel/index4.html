@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+	<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+	<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+	<!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
+	<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
+    <head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+        <meta name="description" content="Elastislide - A Responsive Image Carousel" />
+        <meta name="keywords" content="carousel, jquery, responsive, fluid, elastic, resize, thumbnail, slider" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico"> 
+ 		<script src="js/modernizr.custom.17475.js"></script>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/volcafe.css" />
+        <link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/elastislide.css" />
+		<link rel="stylesheet" type="text/css" href="css/custom.css" />
+
+
+    </head>
+    <body style="zoom:100%; opacity: 0%;">
+		<div>
+			<button  type="button" onclick="subirImagen();" >Subir Imagen </button>
+            </br></br>
+		</div>
+
+	<div  class="container demo-4">
+	   
+            <div  class="main">
+				<div id= "c" class="gallery2">
+					<!-- Elastislide Carousel -->
+					<ul id="carousel" class="elastislide-list"></ul>
+					<!-- End Elastislide Carousel -->
+
+					<div class="image-preview">
+					     <img id="preview" src="fotografias/fotos1/1.jpg"  />
+					</div>
+
+				</div>
+
+			</div>
+		</div>	
+</div>
+        <script type="text/javascript" src="js/Camera.js"></script>
+		<script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquerypp.custom.js"></script>
+		<script type="text/javascript" src="js/jquery.elastislide.js"></script>
+		
+    </body>
+</html>
+
+<script>
+
+function getUrlVars() {
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
+
+	var id = getUrlVars()["id"];
+	
+	//var id = '1';
+	$('#carousel').empty('');
+
+	//ciclo de lectura de fotos
+	var directorio = 'fotografias/fotos'+id+'/';
+	
+	//$('#DirFile').fileTree({root: directorio};
+	//		function(file){alert(file);});
+	
+			
+			 
+	
+	
+	//alert(2);
+	// var archivos[] = directorio.list();
+    var nImg = 4;
+	var nImg = archivos.lenght;
+	for (var i = 1; i < nImg; i++){
+		var im = i.toString()+'.jpg';
+		var li = '<li data-preview="fotografias/fotos'+id+'/'+im+'" ><a href="#"><img src="fotografias/fotos'+id+'/'+im+'" alt="image'+im+'"  width="50px" height="50px" /></a></li>';
+		$('#carousel').append(li);
+	}
+
+
+	
+
+			var current = 0,
+				$preview = $( '#preview' ),
+				$carouselEl = $( '#carousel' ),
+				$carouselItems = $carouselEl.children(),
+				carousel = $carouselEl.elastislide( {
+					current : current,
+					minItems : 4,
+					onClick : function( el, pos, evt ) {
+						changeImage( el, pos );
+						evt.preventDefault();
+					},
+					onReady : function() {
+						changeImage( $carouselItems.eq( current ), current );	
+					}
+				} );
+
+		function changeImage( el, pos ) {
+
+				$preview.attr( 'src', el.data( 'preview' ) );
+				$carouselItems.removeClass( 'current-img' );
+				el.addClass( 'current-img' );
+				carousel.setCurrent( pos );
+
+			}
+   function copy()
+    {
+        var myObject, newpath;
+        myObject = new ActiveXObject("Scripting.FileSystemObject");
+        myObject.CopyFile ("c:\\test.txt", "c:\\tmp\\myTest.txt");
+    }
+	
+	
+	function subirImagen(){ window.location ='imagen.php?id=' + getUrlVars()["id"];}
+	
+/*	
+	
+$(function () {
+    $(":file").click(function () {
+	
+//        if (this.files && this.files[0]) {
+//			var archivo = this.files[0];
+		//alert(archivo.name);
+			//var subirImg = window.open("xuploader.php?fotoID="+archivo,"Subir Imagen","width=300px, height=100px");
+			window.location ="imagen.php";
+		//alert(2);
+            //var reader = new FileReader();
+            //reader.onload = imageIsLoaded;
+            //reader.readAsDataURL(this.files[0]);
+        }
+    });
+});
+
+
+var datos;
+function imageIsLoaded(e) {
+    datos = e.target.result;
+    window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
+
+	window.requestFileSystem(window.PERSISTENT, 1024*1024, onInitFs,errorHandler);
+
+};
+
+
+
+         // Handle errors
+            function errorHandler(e) {
+                var msg = '';
+                switch (e.code) {
+                    case FileError.QUOTA_EXCEEDED_ERR:
+                        msg = 'QUOTA_EXCEEDED_ERR';
+                        break;
+                    case FileError.NOT_FOUND_ERR:
+                        msg = 'NOT_FOUND_ERR';
+                        break;
+                    case FileError.SECURITY_ERR:
+                        msg = 'SECURITY_ERR';
+                        break;
+                    case FileError.INVALID_MODIFICATION_ERR:
+                        msg = 'INVALID_MODIFICATION_ERR';
+                        break;
+                    case FileError.INVALID_STATE_ERR:
+                        msg = 'INVALID_STATE_ERR';
+                        break;
+                    default:
+                        msg = 'Unknown Error';
+                        break;
+                };
+                alert('Error: ' + msg);
+            }
+	
+            // Init and write some data to a file
+            function onInitFs(fs) {
+			alert(4.7);
+			    fs.root.getDirectory('fotografias', {create: true, exclusive: false}, function(directoryEntry){
+                directoryEntry.getFile('a2.jpg', {create: true, exclusive: false}, writeToFile , errorHandler)}, errorHandler);
+                
+            }
+			function writeToFile(fileEntry) {
+        			alert(5);
+                    //fileEntry.isFile === true;
+                    //fileEntry.name=='a2.jpg';
+                    //fileEntry.fullPath == '/a2.jpg';
+					//alert(5.2);
+					alert(fileEntry.fullPath);
+		            // Create a FileWriter object for our FileEntry (log.txt).
+                    fileEntry.createWriter(function(f) {
+					    alert(f);
+                      //alert(datos);
+                        f.onwrite = function(evt){alert('grabado en path '); 
+						        fileEntry.moveTo('/fotografias/a2.jpg','file:///c:/temp/a2.jpg');
+						alert(f.fileName);};
+						f.truncate(0);
+						alert('grabando');
+						f.write(datos);   /// si graba, pero en donde? 
+						
+						//alert('grabado');
+						//f.flush;
+						//f.close();
+						
+					
+                    });
+			}
+*/			
+</script>

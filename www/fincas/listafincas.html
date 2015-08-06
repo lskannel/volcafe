@@ -1,0 +1,101 @@
+<html>
+<header>
+	<script src="js/jquery.js"></script>
+    <script src="js/iscroll.js"></script>
+    
+</header>
+<body>		   
+	<button type='button' onclick='agregar()' >Agregar</button>
+	<button type='button' onclick='eliminar()' >Borrar</button>
+	<button type='button' onclick='modificar()' >Modificar</button>
+
+   <h2>Fincas del Productor</h>
+   <h3>
+   <table>
+   <Tr><td><b>Fecha:</b></td><td></td></tr>
+   </table>
+   </h3>
+   <div id='tablaFincas'>
+   </div>
+
+</body>
+<footer></footer>
+</html>
+
+<script type="text/javascript">
+			
+			
+	function getUrlVars() {
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
+
+	var id = getUrlVars()["id"];
+	var np = getUrlVars()["np"];
+	
+	
+//alert(id);
+	
+		
+	$('#tablaFincas').empty('');
+	//alert(2); 
+	$('#tablaFincas').append('<table>');
+	$('#tablaFincas').append("<tr style='background:#555;'>");
+	$('#tablaFincas').append("<td width='100' style='background:#997;'><b>Finca</b></td>");
+	$('#tablaFincas').append("<td width='300' style='background:#997;'><b>Ubicacion</b></td>");
+	$('#tablaFincas').append("</tr>");
+	
+  
+	db = window.openDatabase("PromotorDirectoryDB", "1.0", "PhoneGap Demo", 2000);
+    db.transaction(leeTabla, leeTabla_error);
+ 	
+	
+
+
+function leeTabla_error(tx, error){ $('#tablaFincas').append('</table>'); alert("error");}
+
+	
+	
+function leeTabla(tx){
+	//alert(id);
+// id, managerId,firstName,address,country, departament, city
+ 	    var sql = "select " 
+				+ " * " 
+//				+ "from Fincas";
+				+ " from Fincas where productor = :id" ; 
+		tx.executeSql(sql, [id], leeTabla_success);
+		}
+		
+function leeTabla_success(tx, results){  
+					var lfincas = results.rows.length;
+					
+					for(var i = 0; i < lfincas ; i++)
+					{
+                            var fincas = results.rows.item(i);					
+							$('#tablaFincas').append('<tr>');
+							$('#tablaFincas').append('<td><a name="fincas.html?id='+fincas.finca+'&np='+fincas.productor+'"  onclick="ventana(name)" >'+fincas.finca+'</a></td>');
+							$('#tablaFincas').append('<td><a name="fincas.html?id='+fincas.fincas+'&np='+fincas.productor+'"  onclick="ventana(name)">'+fincas.nombre+'</a></td>');
+							$('#tablaFincas').append('</tr>');
+							
+						}
+					$('#tablaFincas').append('</table>');
+
+
+
+
+					} 
+					
+function ventana(url){
+
+      window.open(url,'Datos Fincas','width="600px", height=600px"');
+}
+	
+
+</script>

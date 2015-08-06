@@ -1,0 +1,149 @@
+<h1>ventana de seguridad</h1>
+
+<script>
+alert("cargando");
+
+
+function inicio(){
+var usrname = parent.document.getElementById("usrname").value;
+var psw     = parent.document.getElementById("psw").value;
+
+alert(usrname);
+			switch (usrname){
+			    case "cortiz.cr":
+						// busca en servidor cual es su clave de acceso
+						var clave = "12345678";
+						var id ="1";
+						var np="1";
+						break;
+				case "gsalguero.gt":
+					     var clave = "12345";
+						 var id="2";
+						 var np="0";
+						break;
+				case "sergiofgt.pe":
+						var clave = "123";
+						var id="3";
+						var np="3";
+alert(clave);
+						break;
+				default:
+				    var clave = "999999";
+				    window.location = "index.html";  
+			}
+			    
+			if (psw == clave){ 
+alert(id);			
+				var nivel_permiso = np;
+				window.location = "instala.html?id=" +  id + "&np=" + np;
+			}
+			else {window.location = "index.html";
+			 } 
+}
+
+inicio();
+
+
+
+   $("#mySubmit").click(function(){
+    
+    	alert(usrname);
+			switch (usrname){
+				    case "cortiz.cr":
+							// busca en servidor cual es su clave de acceso
+							var clave = "12345678";
+							var id ="1";
+							var np="1";
+							break;
+					case "gsalguero.gt":
+						     var clave = "12345";
+							 var id="2";
+							 var np="0";
+							break;
+					case "sergiofgt.pe":
+							var clave = "123";
+							var id="3";
+							var np="3";
+	alert(clave);
+							break;
+					case "wgarcia.pe":
+						     var clave = "wgarcia";
+							 var id="4";
+							 var np="3";
+							break;
+							
+					case "wgarcia.pe":
+						     var clave = "wgarcia";
+							 var id="5";
+							 var np="3";
+							break;
+														
+					case "mmauriola.gt":
+						     var clave = "mmauriola";
+							 var id="6";
+							 var np="3";
+							break;														
+					case "vlucero.pe":
+						     var clave = "vlucero";
+							 var id="7";
+							 var np="3";
+							break;							
+					case "fvasquez.pe":
+						     var clave = "vlucero";
+							 var id="8";
+							 var np="3";
+							break;							
+					case "ahuancas.pe":
+						     var clave = "ahuancas";
+							 var id="9";
+							 var np="3";
+							break;							
+					case "jdelgado.pe":
+						     var clave = "jdelgado";
+							 var id="10";
+							 var np="3";
+							break;							
+					case "obanda.pe":
+						     var clave = "obanda";
+							 var id="11";
+							 var np="3";
+							break;							
+					case "obanda.pe":
+						     var clave = "obanda";
+							 var id="11";
+							 var np="3";
+							break;							
+					case "nbenvides.pe":
+						     var clave = "obanda";
+							 var id="11";
+							 var np="3";
+							break;							
+					default:
+					    var clave = "999999";
+					    window.location = "index.html";  
+				}
+				    
+			if (psw == clave){ 
+alert(id);			
+				var nivel_permiso = np;
+				window.location = "instala.html?id=" +  id + "&np=" + np;
+			}
+				else {
+							 var id="4";
+							 var np="4";					
+							 window.location = instala.html?id=" +  id + "&np=" + np;
+			 } 
+}
+     
+    });
+
+	
+	var usrname = document.getElementById("usrname").value;
+	var psw     = document.getElementById("psw").value;
+	
+alert('demo');
+
+
+
+
+</script>

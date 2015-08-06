@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <title>Directorio Promotores</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.3.css" />
+
+    </head>
+
+    <body>
+
+	<div id="header" class="header">
+		<h1><a id="actualiza" onclick="populateDB_success();" >METODO VOLCAFE</a></h1>
+	</div>
+	<div id="header2" class="header2">
+		<h2>Inicio</h2>
+	</div>
+	
+	<div id="wrapper" class="ventanaIzquierda">
+		<ul id="PromotorList" class="icon-list"></ul>
+		
+	</div>
+	
+
+	<div id="busy"><image src='img/cargando.gif' width='400px'></div>
+    <script src="cordova.js"></script>
+    <script src="device.js"></script>
+
+    <script src="js/jquery.js"></script>    
+    <script src="js/iscroll.js"></script>
+    <script src="js/xml-converter.js"></script>
+    <script src="js/employeelist.js"></script>
+    <script src="js/file-manager.js"></script>
+	
+    </body>
+
+</html>
+<script>
+var encuestaXML='';
+	var id = getUrlVars()["id"];
+	var np = getUrlVars()["np"];
+	var nivel_permiso = np;
+	var usuario = id;
+	var uuid = window.device.uuid;
+
+</script>
+
+<script>
+/*
+function getUrlVars() {
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
+var encuestaXML='';*/
+/*
+1,CarloS, Ortiz,      ED86C72C193CA3EBE9768874A10882B77DB5285A
+2,German, Salguero,   93e8d8a58e7d4eb9677c9b0eb397df6932fd871c
+3,Wilder, Garcia,     9F6E7CD30FB42A2991FA21BADE9276105ACB7477
+4,Marlin, Mauriola,   BBB99B50E725984A178978379D8470B3328A7910
+5,Victor Lucero, Rey, 62F01E3EB8B82C8BBFDFC894E69E60BE2AAF8F91
+6,Franklin, Vasquez,  84AA9E01A7D941BFF18E5B8CC8F66995B30DD3E4
+7,Albertino, Huancas, 4692B4EAAC4404D7A614285472D1BAA294BD0ADE
+8,Jose Luis, Delgado, A9E48F3A29887D0C14DC54AB9EA2C621225772C6
+9,Omar, Banda,        9C11DA58D486239D1200E6A2FDF3F0689AE3123A
+*/
+/*
+    var id=getUrlVars()["id"];
+	var np=getUrlVars()["np"];
+	var nivel_permiso =getUrlVars()["np"];;
+	var usuario = getUrlVars()["np"];
+	var uuid = window.device.uuid;
+*/	
+	//var nivel_permiso =1;
+	//var usuario = 1;
+	
+/*
+var usuario = confirm("Codigo Instala: " + uuid.toString());
+
+if(usuario){
+	var nivel_permiso =4;
+	var usuario = 4;
+	var uuid = window.device.uuid;
+} else
+{
+	var nivel_permiso =1;
+	var usuario = 1;
+	var uuid = window.device.uuid;
+
+}
+
+function inicio(){
+
+switch (uuid)
+   {
+    case 'ED86C72C193CA3EBE9768874A10882B77DB5285A': 
+         break;
+    case '93e8d8a58e7d4eb9677c9b0eb397df6932fd871c':
+         break;
+    case '9F6E7CD30FB42A2991FA21BADE9276105ACB7477':
+         break;
+    case 'BBB99B50E725984A178978379D8470B3328A7910':
+         break;
+    case '62F01E3EB8B82C8BBFDFC894E69E60BE2AAF8F91':
+         break;
+    case '84AA9E01A7D941BFF18E5B8CC8F66995B30DD3E4':
+         break;
+    case '4692B4EAAC4404D7A614285472D1BAA294BD0ADE':
+         break;
+    case 'A9E48F3A29887D0C14DC54AB9EA2C621225772C6':
+         break;
+    case '9C11DA58D486239D1200E6A2FDF3F0689AE3123A':
+         break;
+    case '1d3442921ad3ac2fd28fdd70db75a091d60bd6a8':
+         break;
+    case 'F391DE3D-94FB-40D8-B286-8C6DE384F466':
+         usuario = 1;
+         nivel_permiso = 1;
+         break;
+    case '3d09b3d1a893f366':
+         usuario = 4;
+         nivel_permiso = 4;
+         break;
+    default:
+   };
+}
+
+inicio();
+
+</script>
+*/

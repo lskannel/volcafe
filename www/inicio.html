@@ -1,0 +1,51 @@
+VERIFICANDO ACCESO
+
+<script>
+alert("autenticando");
+function getUrlVars() {
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
+}
+
+
+var psw=getUrlVars()["psw"];
+var usrname=getUrlVars()["usrname"];
+ 
+
+switch (usrname){
+    case "cortiz@volcafe.co.cr":
+			// busca en servidor cual es su clave de acceso
+			var clave = "12345678";
+			var id ="1";
+			var np="1";
+			break;
+	case "gs-lssys@ls-sys.com":
+		     var clave = "12345";
+			 var id="3";
+			 var np="2";
+			break;
+	case "sergiofgt@gmail.com":
+			var clave = "123";
+			var id="23900000";
+			var np="3";
+			break;
+	default:
+	    var clave = "999999";
+	    window.location = "index.html";  
+}
+    
+if (psw == clave){ 
+	var nivel_permiso = np;
+	window.location = "instala.html?id=" +  id + "&np=" + np;
+}
+else {window.location = "index.html";
+ } 
+
+</script>

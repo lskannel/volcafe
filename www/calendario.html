@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Encuesta</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+         <meta charset="utf-8" />
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+    
+    <body>
+        
+	<div id="header" class="header">
+		<h1>Programar Actividades</h1>
+	</div>
+	<div id="header2">
+		<h2><button class="button" onclick="regresa();">Cancela</button>
+		<button class='button'  onclick="createCalendarEvent(); regresa();" >Agrega-Calendario</button>
+		</h2>
+	</div>
+	
+	<div id="wrapper">
+	    <ul>
+			<li><p>Actividad a Planificar:</br><input id='title' type='text' style="width:98%;"  value=''></p></li>
+        	<li><p>Lugar en donde se Realizara:</br><input id='loc' type='text' style="width:98%;"  value = ''></p></li>
+        	<li><p>Notas:</br><input id='notes' type='text' style="width:98%;" value=''></p></li>
+        	<li><p>Fecha Inicia:</br><input id='startDate' style="width:98%;"  type='date'></p></li> 
+  	    	<li><p>Fecha Finaliza:</br><input id='endDate' style="width:98%;"  type='date'></p></li>
+        </ul>
+		
+		<p><</p>
+	</div>
+		
+
+	<div id="busy">Espere ...</div>
+
+	
+    <script src="cordova.js"></script>
+	<script src="js/Calendar.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/iscroll.js"></script>    
+    <script src="js/file-manager.js"></script>
+    <script src="js/xml-converter.js"></script>
+	<script src="js/calendario.js"></script>
+	
+    </body>
+
+</html>

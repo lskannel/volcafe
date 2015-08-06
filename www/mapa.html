@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Ubicación de Productores</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+        <link rel="stylesheet" href="css/styles.css" />
+        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDOL4OAPBZAPdr218b3_RvLRBsYkwOUWSo&sensor=false"></script>
+    </head>
+    
+    <body>
+        
+	<div id="header" class="header">
+				
+		<h1>Ubicación</h1>
+	</div>
+	<div id="header2">
+		<h2><button class="button" onclick="regresa();" >Retorno</button>
+		<button class="button" onclick="grabar_GPS(); posicionactual();" >   Actualizar Ubicación    </button> 
+		</h2>
+	</div>
+	
+	<div id="wrapper">
+	  	<div>
+		<div id="gmapContent" class="map-content" style="height:900px"></div>
+	  	</div>
+	</div>
+
+	<div id="busy">Espere...</div>
+
+	<script type="text/javascript" src="cordova.js"></script>
+
+	<script src="js/jquery.js"></script>
+    <script src="js/iscroll.js"></script>
+    <script src="js/file-manager.js"></script>
+    <script src="js/gmap.js"></script>
+    <script src="js/xml-converter.js"></script>
+    <script>locproductor(); </script>    
+
+    </body>
+
+</html>
